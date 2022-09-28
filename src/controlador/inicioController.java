@@ -75,6 +75,7 @@ public class inicioController implements Initializable {
     @FXML
     private void abrirProductos(ActionEvent event) {
         mostrarVentana("CONFIRMACION");
+        this.a=3;
         
     }
 
