@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="747.0" prefWidth="1066.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" />
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="747.0" prefWidth="1066.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.VentaController">
+   <children>
+      <TableView fx:id="tablaVenta" layoutX="642.0" layoutY="281.0" prefHeight="298.0" prefWidth="410.0">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="75.0" text="Id" />
+          <TableColumn fx:id="nombre" prefWidth="75.0" text="Nombre" />
+            <TableColumn fx:id="precio" prefWidth="75.0" text="Precio" />
+            <TableColumn fx:id="cantidad" prefWidth="75.0" text="Cantidad" />
+            <TableColumn fx:id="descripcion" prefWidth="109.0" text="Descripción" />
+        </columns>
+      </TableView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="762.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../recursos/icono-producto.jpg" />
+         </image></ImageView>
+   </children>
+</AnchorPane>
