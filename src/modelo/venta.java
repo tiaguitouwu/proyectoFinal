@@ -36,7 +36,7 @@ public class venta extends conexion {
     public  ArrayList<venta> consulta(){
             ArrayList<venta> ventaa= new ArrayList<>();
         try {
-            String sql="select * from profesor";
+            String sql="select * from productos";
             query=getConexion().createStatement();
             ResultSet rs= query.executeQuery(sql);
             while(rs.next()){

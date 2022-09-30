@@ -5,7 +5,6 @@
  */
 package controlador;
 
-import com.sun.org.apache.bcel.internal.generic.SWITCH;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,22 +28,23 @@ import modelo.acceso;
  *
  * @author TERCEROS TM
  */
-public class ConfirmacionController extends inicioController implements Initializable {
+public class ConfirmacionVentaController implements Initializable {
+
     @FXML
     private TextField password;
     acceso a=new acceso();
-    public String accion;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        System.out.println(accion);
-    }
+    }    
+
     @FXML
     private void ingresar(ActionEvent event){
-        String sql="select count(*) from acceso where password="+password.getText()+"";
+        String sql="select count(*) from acceso where departamento='venta' && password="+password.getText()+"";
         int can=a.consultarCantidad(sql);
         System.out.println(can);
         if(can==1){
@@ -53,7 +53,7 @@ public class ConfirmacionController extends inicioController implements Initiali
             Node ventana=(Node) event.getSource();
             Stage stage=(Stage) ventana.getScene().getWindow();
             stage.close();
-            System.out.println(accion);
+            
         }else{
             System.out.println("No existe ese usuario");
             mostrarMensaje();
@@ -64,7 +64,7 @@ public class ConfirmacionController extends inicioController implements Initiali
             Stage stage=new Stage();
             Parent menu=FXMLLoader.load(getClass().getResource("/vista/venta.fxml"));
             Scene scene=new Scene(menu);
-            stage.setTitle("MENU DE ");
+            stage.setTitle("MENU DE VENTA");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.show();
@@ -79,7 +79,5 @@ public class ConfirmacionController extends inicioController implements Initiali
         alert.setContentText("PIN INCORRECTO");
         alert.showAndWait();
     }
-    
-    
     
 }

@@ -37,7 +37,8 @@ public class inicioController implements Initializable {
     private Button btnProveedores;
     @FXML
     private Button btnProductos;
-    private int a;
+    public String a;
+    ConfirmacionController b;
 
     /**
      * Initializes the controller class.
@@ -62,29 +63,17 @@ public class inicioController implements Initializable {
 
     @FXML
     private void abrirVenta(ActionEvent event) {
-        this.a=1;
-        mostrarVentana("CONFIRMACION");
+        mostrarVentana("CONFIRMACION VENTA");
     }
 
     @FXML
     private void abrirProveedores(ActionEvent event) {
-        mostrarVentana("CONFIRMACION");
-        this.a=2;
+        mostrarVentana("CONFIRMACION PROVEEDORES");
     }
 
     @FXML
     private void abrirProductos(ActionEvent event) {
-        mostrarVentana("CONFIRMACION");
-        this.a=3;
-        
-    }
-
-    public int getA() {
-        return a;
-    }
-
-    public void setA(int a) {
-        this.a = a;
+        mostrarVentana("CONFIRMACION PRODUCTOS");        
     }
     
 }

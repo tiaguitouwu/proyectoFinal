@@ -51,9 +51,9 @@ public class VentaController implements Initializable {
         ObservableList<venta> registros=FXCollections.observableArrayList(lista);
         id.setCellValueFactory(new PropertyValueFactory<>("idproducto"));
         nombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        precio.setCellValueFactory(new PropertyValueFactory<>("apellido"));
-        cantidad.setCellValueFactory(new PropertyValueFactory<>("direccion"));
-        descripcion.setCellValueFactory(new PropertyValueFactory<>("telefono"));
+        precio.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        cantidad.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
+        descripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
         tablaVenta.setItems(registros);
     }
     

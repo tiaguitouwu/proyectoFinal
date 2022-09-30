@@ -5,7 +5,6 @@
  */
 package controlador;
 
-import com.sun.org.apache.bcel.internal.generic.SWITCH;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,19 +28,20 @@ import modelo.acceso;
  *
  * @author TERCEROS TM
  */
-public class ConfirmacionController extends inicioController implements Initializable {
+public class ConfirmacionProductosController implements Initializable {
+
     @FXML
     private TextField password;
     acceso a=new acceso();
-    public String accion;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        System.out.println(accion);
-    }
+    }    
+
     @FXML
     private void ingresar(ActionEvent event){
         String sql="select count(*) from acceso where password="+password.getText()+"";
@@ -53,7 +53,7 @@ public class ConfirmacionController extends inicioController implements Initiali
             Node ventana=(Node) event.getSource();
             Stage stage=(Stage) ventana.getScene().getWindow();
             stage.close();
-            System.out.println(accion);
+            
         }else{
             System.out.println("No existe ese usuario");
             mostrarMensaje();
@@ -62,7 +62,7 @@ public class ConfirmacionController extends inicioController implements Initiali
     private void mostrarVentana(){
         try {
             Stage stage=new Stage();
-            Parent menu=FXMLLoader.load(getClass().getResource("/vista/venta.fxml"));
+            Parent menu=FXMLLoader.load(getClass().getResource("/vista/productos.fxml"));
             Scene scene=new Scene(menu);
             stage.setTitle("MENU DE ");
             stage.initModality(Modality.APPLICATION_MODAL);
@@ -83,3 +83,4 @@ public class ConfirmacionController extends inicioController implements Initiali
     
     
 }
+
