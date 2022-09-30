@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="747.0" prefWidth="1066.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.VentaController">
    <children>
-      <TableView fx:id="tablaVenta" layoutX="642.0" layoutY="281.0" prefHeight="298.0" prefWidth="410.0">
+      <TableView fx:id="tablaVenta" layoutX="642.0" layoutY="241.0" prefHeight="298.0" prefWidth="410.0">
         <columns>
           <TableColumn fx:id="id" prefWidth="75.0" text="Id" />
           <TableColumn fx:id="nombre" prefWidth="75.0" text="Nombre" />
@@ -21,5 +25,43 @@
          <image>
             <Image url="@../recursos/icono-producto.jpg" />
          </image></ImageView>
+      <Label layoutX="61.0" layoutY="166.0" text="RUC-CI:">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="61.0" layoutY="216.0" text="TELEFÓNO">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="61.0" layoutY="191.0" text="NOMBRE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <TextField layoutX="173.0" layoutY="166.0" prefHeight="25.0" prefWidth="215.0" />
+      <TextField layoutX="173.0" layoutY="191.0" prefHeight="25.0" prefWidth="215.0" />
+      <TextField layoutX="173.0" layoutY="216.0" prefHeight="25.0" prefWidth="215.0" />
+      <Label layoutX="61.0" layoutY="320.0" text="CÓDIGO">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <TextField layoutX="173.0" layoutY="320.0" prefHeight="25.0" prefWidth="215.0" />
+      <Label layoutX="61.0" layoutY="345.0" text="NOMBRE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <TextField layoutX="173.0" layoutY="345.0" prefHeight="25.0" prefWidth="215.0" />
+      <Label layoutX="61.0" layoutY="370.0" text="CANTIDAD">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <TextField layoutX="173.0" layoutY="370.0" prefHeight="25.0" prefWidth="215.0" />
+      <Button layoutX="336.0" layoutY="489.0" mnemonicParsing="false" text="ACEPTAR" />
+      <Button layoutX="194.0" layoutY="489.0" mnemonicParsing="false" text="BORRAR" />
    </children>
 </AnchorPane>
