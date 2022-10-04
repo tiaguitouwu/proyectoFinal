@@ -36,7 +36,7 @@ public class venta extends conexion {
     public  ArrayList<venta> consulta(){
             ArrayList<venta> ventaa= new ArrayList<>();
         try {
-            String sql="select * from productos";
+            String sql="select * from producto";
             query=getConexion().createStatement();
             ResultSet rs= query.executeQuery(sql);
             while(rs.next()){
@@ -45,7 +45,7 @@ public class venta extends conexion {
                 int can=rs.getInt(3);
                 String nom= rs.getString(4);
                 String descripcion=rs.getString(5);
-                venta p=new venta(idproducto,nombre,precio,cantidad,descripcionProducto);
+                venta p=new venta(idproduc,nom,prec,can,descripcion);
                 ventaa.add(p);
             }
         } catch (SQLException ex) {

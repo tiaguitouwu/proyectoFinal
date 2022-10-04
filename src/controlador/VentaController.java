@@ -14,7 +14,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import modelo.venta;
 
 /**
@@ -38,13 +40,17 @@ public class VentaController implements Initializable {
     private TableColumn<venta, String> descripcion;
     
     venta a=new venta();
+    @FXML
+    private TextField codVenta;
+    @FXML
+    private TextField nomVenta;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        cargarDatos();
     }
     public void cargarDatos(){
         ArrayList<venta> lista=a.consulta();
@@ -53,8 +59,17 @@ public class VentaController implements Initializable {
         nombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         precio.setCellValueFactory(new PropertyValueFactory<>("precio"));
         cantidad.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
-        descripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
+        descripcion.setCellValueFactory(new PropertyValueFactory<>("descripcionProducto"));
         tablaVenta.setItems(registros);
     }
-    
+    private void mostrar(MouseEvent event) {
+        venta p=tablaVenta.getSelectionModel().getSelectedItem();
+        codVenta.setText(String.valueOf(p.getIdproducto()));
+        nomVenta.setText(String.valueOf(p.getNombre()));
+        txtapellido.setText(String.valueOf(p.precio()));
+        txtdireccion.setText(String.valueOf(p.getDireccion()));
+        txttelefono.setText(String.valueOf(p.getTelefono()));
+        BtnEliminar.setDisable(false);
+        BtnModificar.setDisable(false);
+    }
 }

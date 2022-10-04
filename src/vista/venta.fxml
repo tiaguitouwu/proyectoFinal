@@ -48,13 +48,13 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField layoutX="173.0" layoutY="320.0" prefHeight="25.0" prefWidth="215.0" />
+      <TextField fx:id="codVenta" disable="true" layoutX="173.0" layoutY="320.0" prefHeight="25.0" prefWidth="215.0" />
       <Label layoutX="61.0" layoutY="345.0" text="NOMBRE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField layoutX="173.0" layoutY="345.0" prefHeight="25.0" prefWidth="215.0" />
+      <TextField fx:id="nomVenta" disable="true" layoutX="173.0" layoutY="345.0" prefHeight="25.0" prefWidth="215.0" />
       <Label layoutX="61.0" layoutY="370.0" text="CANTIDAD">
          <font>
             <Font name="System Bold" size="16.0" />
