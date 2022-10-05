@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="747.0" prefWidth="1066.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.VentaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="819.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.VentaController">
    <children>
-      <TableView fx:id="tablaVenta" layoutX="642.0" layoutY="241.0" prefHeight="298.0" prefWidth="410.0">
+      <TableView fx:id="tablaVenta" layoutX="642.0" layoutY="241.0" onMouseClicked="#mostrar" prefHeight="298.0" prefWidth="410.0">
         <columns>
           <TableColumn fx:id="id" prefWidth="75.0" text="Id" />
           <TableColumn fx:id="nombre" prefWidth="75.0" text="Nombre" />
@@ -21,7 +21,7 @@
             <TableColumn fx:id="descripcion" prefWidth="109.0" text="Descripción" />
         </columns>
       </TableView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="762.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imagen" fitHeight="150.0" fitWidth="200.0" layoutX="762.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../recursos/icono-producto.jpg" />
          </image></ImageView>
@@ -61,7 +61,31 @@
          </font>
       </Label>
       <TextField layoutX="173.0" layoutY="370.0" prefHeight="25.0" prefWidth="215.0" />
-      <Button layoutX="336.0" layoutY="489.0" mnemonicParsing="false" text="ACEPTAR" />
-      <Button layoutX="194.0" layoutY="489.0" mnemonicParsing="false" text="BORRAR" />
+      <Button fx:id="añadir" layoutX="337.0" layoutY="477.0" mnemonicParsing="false" onAction="#factura" text="AÑADIR" />
+      <Button fx:id="borrar" layoutX="142.0" layoutY="477.0" mnemonicParsing="false" onAction="#limpiarTexto" text="BORRAR" />
+      <TableView fx:id="tablaFactura" layoutX="61.0" layoutY="605.0" prefHeight="200.0" prefWidth="790.0">
+        <columns>
+            <TableColumn fx:id="codFac" prefWidth="112.99996948242188" text="CODIGO" />
+          <TableColumn fx:id="productoFac" prefWidth="294.0" text="PRODUCTO" />
+            <TableColumn fx:id="cantidadFac" prefWidth="107.0" text="CANTIDAD" />
+            <TableColumn fx:id="precioFac" prefWidth="116.0" text="PRECIO" />
+            <TableColumn fx:id="totalFac" prefWidth="159.0" text="TOTAL" />
+        </columns>
+      </TableView>
+      <Label layoutX="857.0" layoutY="649.0" text="SUBTOTAL">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="total" layoutX="1007.0" layoutY="649.0" text="0">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="1051.0" layoutY="649.0" text="Gs.">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

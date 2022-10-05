@@ -10,12 +10,17 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import modelo.venta;
 
@@ -44,7 +49,28 @@ public class VentaController implements Initializable {
     private TextField codVenta;
     @FXML
     private TextField nomVenta;
-
+    @FXML
+    private Button borrar;
+    @FXML
+    private ImageView imagen;
+    @FXML
+    private TableView<venta> tablaFactura;
+    @FXML
+    private TableColumn<venta, Integer> codFac;
+    @FXML
+    private TableColumn<venta, String> productoFac;
+    @FXML
+    private TableColumn<venta, Integer> cantidadFac;
+    @FXML
+    private TableColumn<venta, Integer> precioFac;
+    @FXML
+    private TableColumn<venta, Integer> totalFac;
+    @FXML
+    private Label total;
+    @FXML
+    private Button añadir;
+    
+    
     /**
      * Initializes the controller class.
      */
@@ -62,14 +88,34 @@ public class VentaController implements Initializable {
         descripcion.setCellValueFactory(new PropertyValueFactory<>("descripcionProducto"));
         tablaVenta.setItems(registros);
     }
+    @FXML
     private void mostrar(MouseEvent event) {
         venta p=tablaVenta.getSelectionModel().getSelectedItem();
         codVenta.setText(String.valueOf(p.getIdproducto()));
         nomVenta.setText(String.valueOf(p.getNombre()));
-        txtapellido.setText(String.valueOf(p.precio()));
-        txtdireccion.setText(String.valueOf(p.getDireccion()));
-        txttelefono.setText(String.valueOf(p.getTelefono()));
-        BtnEliminar.setDisable(false);
-        BtnModificar.setDisable(false);
+        Image image1=new Image("/recursos/"+p.getImagen());
+        imagen.setImage(image1);
+       
     }
+
+    @FXML
+    private void limpiarTexto(ActionEvent event) {
+        codVenta.setText("");
+        nomVenta.setText("");
+        Image image1=new Image("/recursos/icono-producto.jpg");
+        imagen.setImage(image1);
+    }
+
+    @FXML
+    private void factura(ActionEvent event) {
+        ArrayList<venta> lista=a.consulta();
+        ObservableList<venta> registros=FXCollections.observableArrayList(lista);
+        codFac.setCellValueFactory(new PropertyValueFactory<>("idproducto"));
+        productoFac.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        precioFac.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        cantidad.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
+        descripcion.setCellValueFactory(new PropertyValueFactory<>("descripcionProducto"));
+        tablaVenta.setItems(registros);
+    }
+    
 }

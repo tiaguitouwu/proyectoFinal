@@ -18,15 +18,16 @@ import java.util.logging.Logger;
  */
 public class venta extends conexion {
     Statement query;
-    private String nombre,descripcionProducto;
+    private String nombre,descripcionProducto,imagen;
     private int idproducto,precio,cantidad;
 
-    public venta(int idproducto, String nombre, int precio, int cantidad, String descripcionProducto) {
+    public venta(int idproducto, String nombre, int precio, int cantidad, String descripcionProducto,String imagen) {
         this.nombre = nombre;
         this.descripcionProducto = descripcionProducto;
         this.idproducto = idproducto;
         this.precio = precio;
         this.cantidad = cantidad;
+        this.imagen=imagen;
     }
 
     public venta() {
@@ -45,7 +46,8 @@ public class venta extends conexion {
                 int can=rs.getInt(3);
                 String nom= rs.getString(4);
                 String descripcion=rs.getString(5);
-                venta p=new venta(idproduc,nom,prec,can,descripcion);
+                String image=rs.getString(6);
+                venta p=new venta(idproduc,nom,prec,can,descripcion,image);
                 ventaa.add(p);
             }
         } catch (SQLException ex) {
@@ -53,6 +55,14 @@ public class venta extends conexion {
         }
         return ventaa;
      }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
     
     public Statement getQuery() {
         return query;
