@@ -84,7 +84,7 @@ public class ProductosController implements Initializable {
     private Button btncanelar;
     @FXML
     private Button btnguardar;
-    String outputu="";
+
     /**
      * Initializes the controller class.
      */
@@ -102,9 +102,10 @@ public class ProductosController implements Initializable {
         FileChooser filechooser = new FileChooser();
         File file = filechooser.showOpenDialog(new Stage());
         
+        int codigo = 10;
         
         String filePath = file.getPath();
-        String output = carpeta + "/"+ txtnombre.getText() + txtid.getText() + ".jpg";
+        String output = carpeta + "/Prod" + codigo + ".jpg";
         Path outputPath = Paths.get(output);
         try {
             Files.copy(Paths.get(filePath), outputPath, StandardCopyOption.REPLACE_EXISTING);
@@ -115,7 +116,7 @@ public class ProductosController implements Initializable {
         FileInputStream stream = new FileInputStream(output);
         Image image = new Image(stream,100,100,false,false);
         imagen.setImage(image);
-        outputu=output;
+
     }
 
     @FXML
@@ -231,7 +232,6 @@ public class ProductosController implements Initializable {
             p.setDescripcion(txtdescripcion.getText());
             p.setPrecio(Integer.parseInt(txtprecio.getText()));
             p.setCantidad(Integer.parseInt(txtcantidad.getText()));
-            p.setImagen(outputu);
             if(p.insertar()){
                 Alert ins=new Alert(Alert.AlertType.INFORMATION);
                 ins.setTitle("Aviso");
@@ -264,7 +264,6 @@ public class ProductosController implements Initializable {
         columnombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         columprecio.setCellValueFactory(new PropertyValueFactory<>("precio"));
         tabla.setItems(registros);
-        
     }
      private void limpiarTexto() {
          txtcantidad.setText("");

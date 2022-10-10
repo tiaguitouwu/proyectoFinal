@@ -83,7 +83,7 @@ public class producto extends conexion{
     }
 
     public void setImagen(String imagen) {
-        this.imagen = imagen;
+        this.imagen ="";
     }
 
     public int getCodigo() {
