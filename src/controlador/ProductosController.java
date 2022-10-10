@@ -46,8 +46,9 @@ import modelo.producto;
  * @author fabri
  */
 public class ProductosController implements Initializable {
-    boolean modificar=false;
-    producto p =new producto();
+
+    boolean modificar = false;
+    producto p = new producto();
     @FXML
     private ImageView imagen;
     @FXML
@@ -84,39 +85,23 @@ public class ProductosController implements Initializable {
     private Button btncanelar;
     @FXML
     private Button btnguardar;
+    String output = "";
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         cargarDatos();
-    }    
+        cargarDatos();
+    }
 
     @FXML
     private void cargar(ActionEvent event) throws FileNotFoundException {
-        String home = System.getProperty("user.home");
-        String carpeta = home + "/Documents/Productos";
-        new File(carpeta).mkdir();
-
         FileChooser filechooser = new FileChooser();
         File file = filechooser.showOpenDialog(new Stage());
-        
-        int codigo = 10;
-        
-        String filePath = file.getPath();
-        String output = carpeta + "/Prod" + codigo + ".jpg";
-        Path outputPath = Paths.get(output);
-        try {
-            Files.copy(Paths.get(filePath), outputPath, StandardCopyOption.REPLACE_EXISTING);
-        } catch (IOException ex) {
-            Logger.getLogger(ProductosController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        FileInputStream stream = new FileInputStream(output);
-        Image image = new Image(stream,100,100,false,false);
+        Image image = new Image(new FileInputStream(file), 100, 100, false, false);
         imagen.setImage(image);
-
+        output = file.getPath();
     }
 
     @FXML
@@ -134,30 +119,30 @@ public class ProductosController implements Initializable {
 
     @FXML
     private void eliminar(ActionEvent event) {
-        Alert alerta=new Alert(Alert.AlertType.CONFIRMATION);
+        Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
         alerta.setTitle("El Sistema Comunica:");
         alerta.setHeaderText(null);
         alerta.setContentText("¿Desea eliminar los datos?");
-        Optional<ButtonType> accion=alerta.showAndWait();
-        if(accion.get()==ButtonType.OK){
+        Optional<ButtonType> accion = alerta.showAndWait();
+        if (accion.get() == ButtonType.OK) {
             p.setCodigo(Integer.parseInt(txtid.getText()));
-            if(p.eliminar()){
-                 Alert del=new Alert(Alert.AlertType.INFORMATION);
+            if (p.eliminar()) {
+                Alert del = new Alert(Alert.AlertType.INFORMATION);
                 del.setTitle("El Sistema Comunica:");
                 del.setHeaderText(null);
-               del.setContentText("Datos eliminados correctamente");
-               del.show();
-               limpiarTexto();
-               cargarDatos();
-               cancelar();
-            }else{
-                Alert del=new Alert(Alert.AlertType.ERROR);
+                del.setContentText("Datos eliminados correctamente");
+                del.show();
+                limpiarTexto();
+                cargarDatos();
+                cancelar();
+            } else {
+                Alert del = new Alert(Alert.AlertType.ERROR);
                 del.setTitle("El Sistema Comunica:");
                 del.setHeaderText(null);
-               del.setContentText("Datos no eliminados.Contacte al administrador");
-               del.show();
-               limpiarTexto();
-               cancelar();
+                del.setContentText("Datos no eliminados.Contacte al administrador");
+                del.show();
+                limpiarTexto();
+                cancelar();
             }
         }
     }
@@ -173,12 +158,14 @@ public class ProductosController implements Initializable {
         btnguardar.setDisable(false);
         btnmodificar.setDisable(true);
         txtnombre.requestFocus();
-        modificar=true;
+        modificar = true;
     }
+
     @FXML
     private void cancelar(ActionEvent event) {
         cancelar();
     }
+
     private void cancelar() {
         txtcantidad.setDisable(true);
         txtdescripcion.setDisable(true);
@@ -193,71 +180,89 @@ public class ProductosController implements Initializable {
     }
 
     @FXML
-    private void guardar(ActionEvent event) {
-        if(modificar){
-         p.setCodigo(Integer.parseInt(txtid.getText()));
-            p.setNombre(txtnombre.getText());
-            p.setDescripcion(txtdescripcion.getText());
-            p.setPrecio(Integer.parseInt(txtprecio.getText()));
-            p.setCantidad(Integer.parseInt(txtcantidad.getText()));
-            if(p.modificar()){
-                Alert ins=new Alert(Alert.AlertType.INFORMATION);
-                ins.setTitle("Aviso");
-                ins.setHeaderText(null);
-                ins.setContentText("Datos modificados correctamente");
-                 ins.show();
-                 limpiarTexto();
-                 cargarDatos();
-                 cancelar();
-              
-            }else{
-                 Alert ins=new Alert(Alert.AlertType.ERROR);
-                ins.setTitle("Aviso");
-                ins.setHeaderText(null);
-               ins.setContentText("Error al moficar.Contacte con al Administrador");
-               ins.show();
-               limpiarTexto();
-               cancelar();
-            }
-              modificar=false;
-    }else{
-        Alert alerta=new Alert(Alert.AlertType.CONFIRMATION);
-        alerta.setTitle("Aviso");
-        alerta.setHeaderText(null);
-        alerta.setContentText("¿Desea guardar los datos?");
-        Optional<ButtonType> accion=alerta.showAndWait();
-        if(accion.get()==ButtonType.OK){
+    private void guardar(ActionEvent event) throws FileNotFoundException {
+        if (modificar) {
             p.setCodigo(Integer.parseInt(txtid.getText()));
             p.setNombre(txtnombre.getText());
             p.setDescripcion(txtdescripcion.getText());
             p.setPrecio(Integer.parseInt(txtprecio.getText()));
             p.setCantidad(Integer.parseInt(txtcantidad.getText()));
-            if(p.insertar()){
-                Alert ins=new Alert(Alert.AlertType.INFORMATION);
+            if (p.modificar()) {
+                Alert ins = new Alert(Alert.AlertType.INFORMATION);
                 ins.setTitle("Aviso");
                 ins.setHeaderText(null);
-               ins.setContentText("Datos insertados correctamente");
-               ins.show();
-               limpiarTexto();
-               cargarDatos();
-               cancelar();
-            }else{
-                  Alert ins=new Alert(Alert.AlertType.ERROR);
+                ins.setContentText("Datos modificados correctamente");
+                ins.show();
+                limpiarTexto();
+                cargarDatos();
+                cancelar();
+
+            } else {
+                Alert ins = new Alert(Alert.AlertType.ERROR);
                 ins.setTitle("Aviso");
                 ins.setHeaderText(null);
-               ins.setContentText("Error al insertar.Contacte con al Administrador");
-               ins.show();
-               limpiarTexto();
-               cancelar();
+                ins.setContentText("Error al moficar.Contacte con al Administrador");
+                ins.show();
+                limpiarTexto();
+                cancelar();
             }
+            modificar = false;
+        } else {
+            Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+            alerta.setTitle("Aviso");
+            alerta.setHeaderText(null);
+            alerta.setContentText("¿Desea guardar los datos?");
+            Optional<ButtonType> accion = alerta.showAndWait();
+            if (accion.get() == ButtonType.OK) {
+                String home = System.getProperty("user.home");
+                String carpeta = home + "/Documents/Productos";
+                new File(carpeta).mkdir();
+                /*String[] parts = output.split(".");
+                String ext = parts[parts.length - 1];*/
+                String path = carpeta + "/" + txtnombre.getText() + txtid.getText() + ".jpg";
+                Path outputPath = Paths.get(path);
+                try {
+                    Files.copy(Paths.get(output), outputPath, StandardCopyOption.REPLACE_EXISTING);
+                } catch (IOException ex) {
+                    Logger.getLogger(ProductosController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                FileInputStream stream = new FileInputStream(path);
+                Image image = new Image(stream);
+                imagen.setImage(image);
+                p.setCodigo(Integer.parseInt(txtid.getText()));
+                p.setNombre(txtnombre.getText());
+                p.setDescripcion(txtdescripcion.getText());
+                p.setPrecio(Integer.parseInt(txtprecio.getText()));
+                p.setCantidad(Integer.parseInt(txtcantidad.getText()));
+
+                p.setImagen(path.replace("\\", "/"));
+                if (p.insertar()) {
+                    Alert ins = new Alert(Alert.AlertType.INFORMATION);
+                    ins.setTitle("Aviso");
+                    ins.setHeaderText(null);
+                    ins.setContentText("Datos insertados correctamente");
+                    ins.show();
+                    limpiarTexto();
+                    cargarDatos();
+                    cancelar();
+                } else {
+                    Alert ins = new Alert(Alert.AlertType.ERROR);
+                    ins.setTitle("Aviso");
+                    ins.setHeaderText(null);
+                    ins.setContentText("Error al insertar.Contacte con al Administrador");
+                    ins.show();
+                    limpiarTexto();
+                    cancelar();
+                }
+            }
+
         }
-                
     }
-    }
-     private void cargarDatos() {
-          ArrayList<producto> lista=p.consulta();
-        ObservableList<producto> registros=FXCollections.observableArrayList(lista);
-        
+
+    private void cargarDatos() {
+        ArrayList<producto> lista = p.consulta();
+        ObservableList<producto> registros = FXCollections.observableArrayList(lista);
+
         columcantidad.setCellValueFactory(new PropertyValueFactory<>("cantidad"));
         columcodigo.setCellValueFactory(new PropertyValueFactory<>("codigo"));
         columdescripcion.setCellValueFactory(new PropertyValueFactory<>("descripcion"));
@@ -265,8 +270,9 @@ public class ProductosController implements Initializable {
         columprecio.setCellValueFactory(new PropertyValueFactory<>("precio"));
         tabla.setItems(registros);
     }
-     private void limpiarTexto() {
-         txtcantidad.setText("");
+
+    private void limpiarTexto() {
+        txtcantidad.setText("");
         txtdescripcion.setText("");
         txtid.setText("");
         txtnombre.setText("");
@@ -274,8 +280,8 @@ public class ProductosController implements Initializable {
     }
 
     @FXML
-    private void mostrardatos(MouseEvent event) {
-        producto p=tabla.getSelectionModel().getSelectedItem();
+    private void mostrardatos(MouseEvent event) throws FileNotFoundException {
+        producto p = tabla.getSelectionModel().getSelectedItem();
         txtid.setText(String.valueOf(p.getCodigo()));
         txtnombre.setText(String.valueOf(p.getNombre()));
         txtdescripcion.setText(String.valueOf(p.getDescripcion()));
@@ -284,6 +290,12 @@ public class ProductosController implements Initializable {
         btnmodificar.setDisable(false);
         btneliminar.setDisable(false);
         btnagregar.setDisable(true);
+
+        System.out.println(p.getImagen());
+        FileInputStream stream = new FileInputStream(p.getImagen());
+        Image image = new Image(stream);
+        imagen.setImage(image);
+
     }
-     
+
 }

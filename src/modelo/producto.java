@@ -24,13 +24,13 @@ public class producto extends conexion{
     public producto() {
     }
 
-    public producto(String nombre, String descripcion, int codigo, int precio, int cantidad) {
+    public producto(String nombre, String descripcion, int codigo, int precio, int cantidad, String imagen) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.codigo = codigo;
         this.precio = precio;
         this.cantidad = cantidad;
-        //this.imagen= imagen;
+        this.imagen= imagen;
     }
     
     public  ArrayList<producto> consulta(){
@@ -45,7 +45,8 @@ public class producto extends conexion{
                 int can=rs.getInt(3);
                 String nom= rs.getString(4);
                 String descripcion=rs.getString(5);
-                producto p=new producto(nom,descripcion,cod,prec,can);
+                String imagen=rs.getString(6);
+                producto p=new producto(nom,descripcion,cod,prec,can,imagen);
                 produc.add(p);
             }
         } catch (SQLException ex) {
@@ -83,7 +84,7 @@ public class producto extends conexion{
     }
 
     public void setImagen(String imagen) {
-        this.imagen ="";
+        this.imagen = imagen;
     }
 
     public int getCodigo() {

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="820.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ProductosController">
+<AnchorPane id="AnchorPane" prefHeight="820.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ProductosController">
    <children>
       <Label layoutX="25.0" layoutY="366.0" text="CODIGO">
          <font>
@@ -47,7 +47,7 @@
       <Button fx:id="btnagregar" layoutX="480.0" layoutY="366.0" mnemonicParsing="false" onAction="#agregar" prefHeight="105.0" prefWidth="180.0" text="Agregar" />
       <Button fx:id="btneliminar" disable="true" layoutX="898.0" layoutY="366.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="105.0" prefWidth="180.0" text="Eliminar" />
       <Button fx:id="btnmodificar" disable="true" layoutX="689.0" layoutY="366.0" mnemonicParsing="false" onAction="#modificar" prefHeight="105.0" prefWidth="180.0" text="Modificar" />
-      <Hyperlink fx:id="linkcargar" disable="true" layoutX="22.0" layoutY="772.0" onAction="#cargar" text="Cargar imagen">
+      <Hyperlink fx:id="linkcargar" disable="true" layoutX="17.0" layoutY="669.0" onAction="#cargar" text="Cargar imagen">
          <font>
             <Font size="18.0" />
          </font>
