@@ -1,0 +1,13 @@
+.codColum{
+
+}
+.table{
+	opacity: 0.8;
+}
+.table:hover{
+	-fx-opacity: 1;
+}
+.button{
+	-fx-background-color: darkslateblue; 
+	-fx-text-fill: white;
+}

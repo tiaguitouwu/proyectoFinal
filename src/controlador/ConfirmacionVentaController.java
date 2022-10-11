@@ -44,7 +44,7 @@ public class ConfirmacionVentaController implements Initializable {
 
     @FXML
     private void ingresar(ActionEvent event){
-        String sql="select count(*) from acceso where departamento='venta' && password="+password.getText()+"";
+        String sql="select count(*) from acceso where departamento='ventas' && password="+password.getText()+"";
         int can=a.consultarCantidad(sql);
         System.out.println(can);
         if(can==1){
