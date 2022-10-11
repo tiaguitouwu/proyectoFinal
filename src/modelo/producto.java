@@ -133,11 +133,23 @@ public class producto extends conexion{
         } catch (SQLException ex) {
             Logger.getLogger(producto.class.getName()).log(Level.SEVERE, null, ex);
             return false;
+    }
+    }
+    public boolean modificarCantidad(){
+        try {
+            String sql="update producto set cantidad="+this.cantidad
+                    +" where idproducto="+this.codigo;
+                   
+            query=getCon().createStatement();
+            query.executeUpdate(sql);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(producto.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
     
-    
     }
-        public boolean eliminar(){
+    public boolean eliminar(){
         try {
             String sql="delete from producto where idproducto= "+this.codigo;
             query=getCon().createStatement();
@@ -147,5 +159,5 @@ public class producto extends conexion{
             Logger.getLogger(producto.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
-        }
+    }
 }

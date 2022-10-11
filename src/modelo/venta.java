@@ -8,6 +8,8 @@ package modelo;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,52 +20,32 @@ import java.util.logging.Logger;
  */
 public class venta extends conexion {
     Statement query;
-    private String nombre,descripcionProducto,imagen;
-    private int idproducto,precio,cantidad;
+    
+    private int idVenta,ruc;
 
-    public venta(int idproducto, String nombre, int precio, int cantidad, String descripcionProducto,String imagen) {
-        this.nombre = nombre;
-        this.descripcionProducto = descripcionProducto;
-        this.idproducto = idproducto;
-        this.precio = precio;
-        this.cantidad = cantidad;
-        this.imagen=imagen;
+    public venta(int idVenta, int ruc) {
+        this.idVenta=idVenta;
+        this.ruc=ruc;
     }
 
     public venta() {
     }
     
-
-    public  ArrayList<venta> consulta(){
-            ArrayList<venta> ventaa= new ArrayList<>();
-        try {
-            String sql="select * from producto";
+    public boolean insertarVenta(){
+        LocalDate fecha1 = LocalDate.now();
+        String formato="dd/LL/yyyy";
+        String fecha=(obtenerFechaFormateada(fecha1,formato));
+        try {   
+            String sql="Insert into venta values ("+this.idVenta+",'"+fecha+"',"+this.ruc+")";
             query=getConexion().createStatement();
-            ResultSet rs= query.executeQuery(sql);
-            while(rs.next()){
-                int idproduc =rs.getInt(1);
-                int prec=rs.getInt(2);
-                int can=rs.getInt(3);
-                String nom= rs.getString(4);
-                String descripcion=rs.getString(5);
-                String image=rs.getString(6);
-                venta p=new venta(idproduc,nom,prec,can,descripcion,image);
-                ventaa.add(p);
-            }
+            query.executeUpdate(sql);
+            return true;
         } catch (SQLException ex) {
             Logger.getLogger(venta.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
-        return ventaa;
-     }
-
-    public String getImagen() {
-        return imagen;
     }
 
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
-    }
-    
     public Statement getQuery() {
         return query;
     }
@@ -72,43 +54,24 @@ public class venta extends conexion {
         this.query = query;
     }
 
-    public String getNombre() {
-        return nombre;
+    public int getIdVenta() {
+        return idVenta;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setIdVenta(int idVenta) {
+        this.idVenta = idVenta;
     }
 
-    public String getDescripcionProducto() {
-        return descripcionProducto;
+    public int getRuc() {
+        return ruc;
     }
 
-    public void setDescripcionProducto(String descripcionProducto) {
-        this.descripcionProducto = descripcionProducto;
+    public void setRuc(int ruc) {
+        this.ruc = ruc;
     }
+    private String obtenerFechaFormateada(LocalDate fecha, String formato) {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern(formato);
+        return fecha.format(dtf);
+    }   
 
-    public int getIdproducto() {
-        return idproducto;
-    }
-
-    public void setIdproducto(int idproducto) {
-        this.idproducto = idproducto;
-    }
-
-    public int getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(int precio) {
-        this.precio = precio;
-    }
-
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
 }

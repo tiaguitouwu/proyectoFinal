@@ -7,6 +7,8 @@ package controlador;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -48,8 +50,12 @@ public class inicioController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+        
+  
     }
+    
+   
     private void mostrarVentana(String ventana){
         try {
             Stage stage=new Stage();
