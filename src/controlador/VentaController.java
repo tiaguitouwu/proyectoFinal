@@ -185,44 +185,23 @@ public class VentaController implements Initializable {
             c.setRuc(Integer.parseInt(rucCliente.getText()));
             c.setTelefono(Integer.parseInt(txtTelefono.getText()));
             c.setDireccion(txtDireccion.getText());
-            if(v.insertarVenta()){
-               Alert ins=new Alert(Alert.AlertType.INFORMATION);
-               ins.setTitle("Aviso");
-               ins.setHeaderText(null);
-               ins.show();
-            }else{
-                Alert ins=new Alert(Alert.AlertType.ERROR);
-                ins.setTitle("Aviso");
-                ins.setHeaderText(null);
-                ins.setContentText("Error al insertar.Contacte con al Administrador");
-                ins.show();
-
-        }
-        
-        Alert alerta=new Alert(Alert.AlertType.CONFIRMATION);
-        alerta.setTitle("Aviso");
-        alerta.setHeaderText(null);
-        alerta.setContentText("¿Desea completar la venta?");
-        Optional<ButtonType> accion=alerta.showAndWait();
-        if(accion.get()==ButtonType.OK){
-            v.setIdVenta(Integer.parseInt(txtVenta.getText()));
-            v.setRuc(Integer.parseInt(rucCliente.getText()));
-            if(v.insertarVenta()){
-               Alert ins=new Alert(Alert.AlertType.INFORMATION);
-               ins.setTitle("Aviso");
-               ins.setHeaderText(null);
-               ins.setContentText("Venta completada");
-               ins.show();
-               cargarDatos();
-
-            }else{
-                  Alert ins=new Alert(Alert.AlertType.ERROR);
-                ins.setTitle("Aviso");
-                ins.setHeaderText(null);
-               ins.setContentText("Error al insertar.Contacte con al Administrador");
-               ins.show();
-
-            }
+            if(c.insertar()){
+                v.setIdVenta(Integer.parseInt(txtVenta.getText()));
+                v.setRuc(Integer.parseInt(rucCliente.getText()));
+                if(v.insertarVenta()){
+                   Alert ins=new Alert(Alert.AlertType.INFORMATION);
+                   ins.setTitle("Aviso");
+                   ins.setHeaderText(null);
+                   ins.setContentText("Venta completada");
+                   ins.show();
+                   cargarDatos();
+                }else{
+                          Alert ins=new Alert(Alert.AlertType.ERROR);
+                        ins.setTitle("Aviso");
+                        ins.setHeaderText(null);
+                       ins.setContentText("Error al insertar.Contacte con al Administrador");
+                       ins.show();
+                    }
        }
                 
         //   Detalle Venta   //

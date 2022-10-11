@@ -10,4 +10,11 @@
 .button{
 	-fx-background-color: darkslateblue; 
 	-fx-text-fill: white;
+	-fx-opacity: 0.8;
 }
+.button:hover{
+	-fx-opacity: 1;
+}
+.fondo{
+	-fx-background-color: #f7f7a6;
+	}

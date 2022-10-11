@@ -65,7 +65,7 @@
       <Button fx:id="borrar" layoutX="142.0" layoutY="477.0" mnemonicParsing="false" onAction="#limpiarTexto" text="BORRAR" />
       <TableView fx:id="tablaFactura" layoutX="61.0" layoutY="605.0" prefHeight="200.0" prefWidth="790.0" style="-fx-border-color: black;">
         <columns>
-            <TableColumn fx:id="codFac" prefWidth="112.99996948242188" style="-fx-border-color: black;" text="CODIGO" />
+            <TableColumn fx:id="codFac" prefWidth="112.99996948242188" text="CODIGO" />
           <TableColumn fx:id="productoFac" prefWidth="294.0" text="PRODUCTO" />
             <TableColumn fx:id="cantidadFac" prefWidth="107.0" text="CANTIDAD" />
             <TableColumn fx:id="precioFac" prefWidth="116.0" text="PRECIO" />

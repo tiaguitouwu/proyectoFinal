@@ -44,7 +44,7 @@ public class ConfirmacionProveedoresController implements Initializable {
 
     @FXML
     private void ingresar(ActionEvent event){
-        String sql="select count(*) from acceso where password="+password.getText()+"";
+        String sql="select count(*) from acceso where departamento= 'proveedor' && password="+password.getText()+"";
         int can=a.consultarCantidad(sql);
         System.out.println(can);
         if(can==1){
@@ -64,7 +64,7 @@ public class ConfirmacionProveedoresController implements Initializable {
             Stage stage=new Stage();
             Parent menu=FXMLLoader.load(getClass().getResource("/vista/proveedores.fxml"));
             Scene scene=new Scene(menu);
-            stage.setTitle("MENU DE ");
+            stage.setTitle("MENU DE PRODUCTOS");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.show();
@@ -79,5 +79,4 @@ public class ConfirmacionProveedoresController implements Initializable {
         alert.setContentText("PIN INCORRECTO");
         alert.showAndWait();
     }
-    
 }

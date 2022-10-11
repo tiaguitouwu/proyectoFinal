@@ -38,7 +38,7 @@ public class factura extends conexion {
             query.executeUpdate(sql);
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(venta.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(factura.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
     }

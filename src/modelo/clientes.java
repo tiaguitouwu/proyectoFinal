@@ -20,12 +20,12 @@ public class clientes extends conexion{
     String razon, direccion;
     public boolean insertar(){
         try {
-            String sql="Insert into clientes values("+this.ruc+",'"+this.razon+"','"+this.direccion+"',"+this.telefono+")";
+            String sql="Insert into cliente values("+this.ruc+",'"+this.razon+"','"+this.direccion+"',"+this.telefono+")";
             query=getConexion().createStatement();
             query.executeUpdate(sql);
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(producto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(clientes.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
     }

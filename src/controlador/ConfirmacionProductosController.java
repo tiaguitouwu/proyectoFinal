@@ -64,7 +64,7 @@ public class ConfirmacionProductosController implements Initializable {
             Stage stage=new Stage();
             Parent menu=FXMLLoader.load(getClass().getResource("/vista/productos.fxml"));
             Scene scene=new Scene(menu);
-            stage.setTitle("MENU DE ");
+            stage.setTitle("MENU DE PRODUCTOS");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.show();
