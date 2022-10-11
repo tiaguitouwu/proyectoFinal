@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
@@ -11,5 +12,6 @@
       <Button fx:id="btnVenta" layoutX="418.0" layoutY="209.0" mnemonicParsing="false" onAction="#abrirVenta" prefHeight="106.0" prefWidth="230.0" text="VENTA" />
       <Button fx:id="btnProductos" layoutX="418.0" layoutY="358.0" mnemonicParsing="false" onAction="#abrirProductos" prefHeight="106.0" prefWidth="230.0" text="PRODUCTOS" />
       <Button fx:id="btnProveedores" layoutX="418.0" layoutY="512.0" mnemonicParsing="false" onAction="#abrirProveedores" prefHeight="106.0" prefWidth="230.0" text="PROVEEDORES" />
+      <Hyperlink fx:id="btnmanual" layoutX="31.0" layoutY="24.0" onAction="#mostrarmanual" text="Manual" />
     </children>
 </AnchorPane>
