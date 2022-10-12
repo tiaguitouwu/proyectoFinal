@@ -217,8 +217,6 @@ public class ProductosController implements Initializable {
                 String home = System.getProperty("user.home");
                 String carpeta = home + "/Documents/Productos";
                 new File(carpeta).mkdir();
-                /*String[] parts = output.split(".");
-                String ext = parts[parts.length - 1];*/
                 String path = carpeta + "/" + txtnombre.getText() + txtid.getText() + ".jpg";
                 Path outputPath = Paths.get(path);
                 try {
@@ -293,7 +291,7 @@ public class ProductosController implements Initializable {
 
         System.out.println(p.getImagen());
         FileInputStream stream = new FileInputStream(p.getImagen());
-        Image image = new Image(stream);
+        Image image = new Image(stream,100,100,false,false);
         imagen.setImage(image);
 
     }

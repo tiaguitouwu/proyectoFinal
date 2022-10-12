@@ -20,6 +20,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -41,6 +42,8 @@ public class inicioController implements Initializable {
     private Button btnProductos;
     public String a;
     ConfirmacionController b;
+    @FXML
+    private Hyperlink btnmanual;
 
     /**
      * Initializes the controller class.
@@ -80,6 +83,11 @@ public class inicioController implements Initializable {
     @FXML
     private void abrirProductos(ActionEvent event) {
         mostrarVentana("CONFIRMACION PRODUCTOS");        
+    }
+
+    @FXML
+    private void mostrarmanual(ActionEvent event) {
+        mostrarVentana("INSTRUCCIONES");
     }
     
 }
