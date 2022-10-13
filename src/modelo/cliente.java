@@ -89,15 +89,14 @@ public class cliente extends conexion{
     public ArrayList<cliente> consulta() {
         ArrayList<cliente> busc=new ArrayList<>();
             try {
-                String sql="select * from clientes";
-                query=getCon().createStatement();
+                String sql="select * from cliente";
+                query=getConexion().createStatement();
                 ResultSet rs=query.executeQuery(sql);
             while(rs.next()){
                 int rucc=rs.getInt(1);
                 String raz=rs.getString(2);
                 String dir=rs.getString(3);
                 int tel =rs.getInt(4);
-                
                 cliente a=new cliente(rucc,raz,dir,tel);
                 busc.add(a);//agregamos cada fila(objeto) al arraylist
             }//fin del while

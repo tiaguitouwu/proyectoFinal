@@ -42,8 +42,6 @@ public class inicioController implements Initializable {
     private Button btnProductos;
     public String a;
     ConfirmacionController b;
-    @FXML
-    private Hyperlink btnmanual;
 
     /**
      * Initializes the controller class.
@@ -85,7 +83,6 @@ public class inicioController implements Initializable {
         mostrarVentana("CONFIRMACION PRODUCTOS");        
     }
 
-    @FXML
     private void mostrarmanual(ActionEvent event) {
         mostrarVentana("INSTRUCCIONES");
     }
