@@ -157,6 +157,7 @@ public class ProductosController implements Initializable {
         btneliminar.setDisable(true);
         btnguardar.setDisable(false);
         btnmodificar.setDisable(true);
+        txtprecio.setDisable(false);
         txtnombre.requestFocus();
         modificar = true;
     }
