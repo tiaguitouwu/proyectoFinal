@@ -108,6 +108,10 @@ public class VentaController implements Initializable {
     private TextField txtTelefono;
     @FXML
     private TextField txtDireccion;
+    @FXML
+    private Button nuevoCliente;
+    @FXML
+    private Button btnNuevoCliente;
     /**
      * Initializes the controller class.
      */
@@ -181,28 +185,23 @@ public class VentaController implements Initializable {
         alerta1.setContentText("¿Desea completar la venta?");
         Optional<ButtonType> accion2=alerta1.showAndWait();
         if(accion2.get()==ButtonType.OK){
-            c.setRazon(txtVenta.getText());
-            c.setRuc(Integer.parseInt(rucCliente.getText()));
-            c.setTelefono(Integer.parseInt(txtTelefono.getText()));
-            c.setDireccion(txtDireccion.getText());
-            if(c.insertar()){
-                v.setIdVenta(Integer.parseInt(txtVenta.getText()));
-                v.setRuc(Integer.parseInt(rucCliente.getText()));
-                if(v.insertarVenta()){
-                   Alert ins=new Alert(Alert.AlertType.INFORMATION);
-                   ins.setTitle("Aviso");
-                   ins.setHeaderText(null);
-                   ins.setContentText("Venta completada");
-                   ins.show();
-                   cargarDatos();
-                }else{
-                          Alert ins=new Alert(Alert.AlertType.ERROR);
-                        ins.setTitle("Aviso");
-                        ins.setHeaderText(null);
-                       ins.setContentText("Error al insertar.Contacte con al Administrador");
-                       ins.show();
-                    }
-       }
+            v.setIdVenta(Integer.parseInt(txtVenta.getText()));
+            v.setRuc(Integer.parseInt(rucCliente.getText()));
+            if(v.insertarVenta()){
+                Alert ins=new Alert(Alert.AlertType.INFORMATION);
+                ins.setTitle("Aviso");
+                ins.setHeaderText(null);
+                ins.setContentText("Venta completada");
+                ins.show();
+                cargarDatos();
+            }else{
+                Alert ins=new Alert(Alert.AlertType.ERROR);
+                ins.setTitle("Aviso");
+                ins.setHeaderText(null);
+                ins.setContentText("Error al insertar.Contacte con al Administrador");
+                ins.show();
+            }
+       
                 
         //   Detalle Venta   //
         
@@ -238,6 +237,48 @@ public class VentaController implements Initializable {
     }
     public void recibirCodigo(int id){
        rucCliente.setText(String.valueOf(id));
+    }
+
+    @FXML
+    private void crearCliente(ActionEvent event) {
+        rucCliente.setDisable(false);
+        txtDireccion.setDisable(false);
+        txtRazon.setDisable(false);
+        txtTelefono.setDisable(false);
+        btnNuevoCliente.setDisable(false);
+    }
+
+    @FXML
+    private void newCliente(ActionEvent event) {
+        Alert alerta=new Alert(Alert.AlertType.CONFIRMATION);
+        alerta.setTitle("Aviso");
+        alerta.setHeaderText(null);
+        alerta.setContentText("¿Desea guardar los datos?");
+        Optional<ButtonType> accion=alerta.showAndWait();
+        if(accion.get()==ButtonType.OK){
+            c.setRuc(Integer.parseInt(rucCliente.getText()));
+            c.setRazon(txtRazon.getText());
+            c.setDireccion(txtDireccion.getText());
+            c.setTelefono(Integer.parseInt(txtTelefono.getText()));
+            if(c.insertar()){
+                Alert ins=new Alert(Alert.AlertType.INFORMATION);
+                ins.setTitle("Aviso");
+                ins.setHeaderText(null);
+                ins.setContentText("Datos insertados correctamente");
+                ins.show();
+            }else{
+                Alert ins=new Alert(Alert.AlertType.ERROR);
+                ins.setTitle("Aviso");
+                ins.setHeaderText(null);
+                ins.setContentText("Error al insertar.Contacte con al Administrador");
+                ins.show();
+            }
+       }
+        rucCliente.setDisable(true);
+        txtDireccion.setDisable(true);
+        txtRazon.setDisable(true);
+        txtTelefono.setDisable(true);
+        btnNuevoCliente.setDisable(true);
     }
     
 }

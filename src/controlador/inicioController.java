@@ -42,8 +42,6 @@ public class inicioController implements Initializable {
     private Button btnProductos;
     public String a;
     ConfirmacionController b;
-    @FXML
-    private Hyperlink btnmanual;
 
     /**
      * Initializes the controller class.
@@ -63,6 +61,7 @@ public class inicioController implements Initializable {
             Scene scene=new Scene(menu);
             stage.setTitle("MENU DE "+ventana);
             stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setResizable(false);
             stage.setScene(scene);
             stage.show();
             } catch (IOException ex) {
@@ -85,7 +84,6 @@ public class inicioController implements Initializable {
         mostrarVentana("CONFIRMACION PRODUCTOS");        
     }
 
-    @FXML
     private void mostrarmanual(ActionEvent event) {
         mostrarVentana("INSTRUCCIONES");
     }

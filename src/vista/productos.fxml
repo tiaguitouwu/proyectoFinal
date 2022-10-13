@@ -11,48 +11,48 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="820.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ProductosController">
+<AnchorPane id="AnchorPane" mouseTransparent="true" prefHeight="669.0" prefWidth="1062.0" style="-fx-border-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.ProductosController">
    <children>
-      <Label layoutX="25.0" layoutY="366.0" text="CODIGO">
+      <Label layoutX="21.0" layoutY="323.0" text="CODIGO">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="213.0" prefHeight="25.0" prefWidth="28.0" />
-      <Label layoutX="25.0" layoutY="426.0" text="PRECIO">
+      <Label layoutX="10.0" layoutY="172.0" prefHeight="25.0" prefWidth="28.0" />
+      <Label layoutX="21.0" layoutY="383.0" text="PRECIO">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="25.0" layoutY="486.0" text="CANTIDAD">
+      <Label layoutX="21.0" layoutY="443.0" text="CANTIDAD">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="22.0" layoutY="546.0" text="NOMBRE">
+      <Label layoutX="18.0" layoutY="503.0" text="NOMBRE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="25.0" layoutY="616.0" text="DESCRIPCIÓN">
+      <Label layoutX="21.0" layoutY="573.0" text="DESCRIPCIÓN">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="txtid" disable="true" layoutX="153.0" layoutY="366.0" minWidth="-Infinity" prefHeight="25.0" prefWidth="215.0" />
-      <TextField fx:id="txtprecio" disable="true" layoutX="153.0" layoutY="426.0" prefHeight="25.0" prefWidth="215.0" />
-      <TextField fx:id="txtcantidad" disable="true" layoutX="153.0" layoutY="486.0" prefHeight="25.0" prefWidth="215.0" />
-      <TextField fx:id="txtnombre" disable="true" layoutX="153.0" layoutY="546.0" prefHeight="25.0" prefWidth="215.0" />
-      <TextArea fx:id="txtdescripcion" disable="true" layoutX="153.0" layoutY="601.0" prefHeight="52.0" prefWidth="215.0" />
-      <Button fx:id="btnagregar" layoutX="480.0" layoutY="366.0" mnemonicParsing="false" onAction="#agregar" prefHeight="105.0" prefWidth="180.0" text="Agregar" />
-      <Button fx:id="btneliminar" disable="true" layoutX="898.0" layoutY="366.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="105.0" prefWidth="180.0" text="Eliminar" />
-      <Button fx:id="btnmodificar" disable="true" layoutX="689.0" layoutY="366.0" mnemonicParsing="false" onAction="#modificar" prefHeight="105.0" prefWidth="180.0" text="Modificar" />
-      <Hyperlink fx:id="linkcargar" disable="true" layoutX="17.0" layoutY="669.0" onAction="#cargar" text="Cargar imagen">
+      <TextField fx:id="txtid" disable="true" layoutX="149.0" layoutY="322.0" minWidth="-Infinity" prefHeight="25.0" prefWidth="215.0" />
+      <TextField fx:id="txtprecio" disable="true" layoutX="149.0" layoutY="383.0" prefHeight="25.0" prefWidth="215.0" />
+      <TextField fx:id="txtcantidad" disable="true" layoutX="149.0" layoutY="443.0" prefHeight="25.0" prefWidth="215.0" />
+      <TextField fx:id="txtnombre" disable="true" layoutX="149.0" layoutY="503.0" prefHeight="25.0" prefWidth="215.0" />
+      <TextArea fx:id="txtdescripcion" disable="true" layoutX="149.0" layoutY="558.0" prefHeight="52.0" prefWidth="215.0" />
+      <Button fx:id="btnagregar" layoutX="447.0" layoutY="365.0" mnemonicParsing="false" onAction="#agregar" prefHeight="105.0" prefWidth="180.0" text="Agregar" />
+      <Button fx:id="btneliminar" disable="true" layoutX="864.0" layoutY="363.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="105.0" prefWidth="180.0" text="Eliminar" />
+      <Button fx:id="btnmodificar" disable="true" layoutX="653.0" layoutY="362.0" mnemonicParsing="false" onAction="#modificar" prefHeight="105.0" prefWidth="180.0" text="Modificar" />
+      <Hyperlink fx:id="linkcargar" disable="true" layoutX="17.0" layoutY="625.0" onAction="#cargar" text="Cargar imagen">
          <font>
             <Font size="18.0" />
          </font>
       </Hyperlink>
-      <TableView fx:id="tabla" layoutX="480.0" layoutY="14.0" onMouseClicked="#mostrardatos" prefHeight="269.0" prefWidth="598.0">
+      <TableView fx:id="tabla" layoutX="466.0" layoutY="14.0" onMouseClicked="#mostrardatos" prefHeight="269.0" prefWidth="586.0">
         <columns>
           <TableColumn fx:id="columcodigo" prefWidth="62.0" text="CODIGO" />
           <TableColumn fx:id="columnombre" prefWidth="138.0" text="NOMBRE" />
@@ -66,7 +66,7 @@
             <ImageView fx:id="imagen" fitHeight="270.0" fitWidth="285.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
-      <Button fx:id="btncanelar" disable="true" layoutX="808.0" layoutY="564.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="105.0" prefWidth="180.0" text="Cancelar" />
-      <Button fx:id="btnguardar" disable="true" layoutX="599.0" layoutY="564.0" mnemonicParsing="false" onAction="#guardar" prefHeight="105.0" prefWidth="180.0" text="Guardar" />
+      <Button fx:id="btncanelar" disable="true" layoutX="780.0" layoutY="520.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="105.0" prefWidth="180.0" text="Cancelar" />
+      <Button fx:id="btnguardar" disable="true" layoutX="564.0" layoutY="522.0" mnemonicParsing="false" onAction="#guardar" prefHeight="105.0" prefWidth="180.0" text="Guardar" />
    </children>
 </AnchorPane>

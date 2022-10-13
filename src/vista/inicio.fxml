@@ -4,12 +4,12 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="747.0" prefWidth="1066.0" styleClass="fondo" stylesheets="@../recursos/css/table.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.inicioController">
+<AnchorPane id="AnchorPane" prefHeight="643.0" prefWidth="870.0" styleClass="fondo" stylesheets="@../recursos/css/table.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.inicioController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <Label layoutX="464.0" layoutY="79.0" stylesheets="@../recursos/css/table.css" text="NOMBRE DE LA EMPRESA" />
-      <Button fx:id="btnVenta" layoutX="418.0" layoutY="209.0" mnemonicParsing="false" onAction="#abrirVenta" prefHeight="106.0" prefWidth="230.0" stylesheets="@../recursos/css/table.css" text="VENTA" />
-      <Button fx:id="btnProductos" layoutX="418.0" layoutY="358.0" mnemonicParsing="false" onAction="#abrirProductos" prefHeight="106.0" prefWidth="230.0" stylesheets="@../recursos/css/table.css" text="PRODUCTOS" />
-      <Button fx:id="btnProveedores" layoutX="418.0" layoutY="512.0" mnemonicParsing="false" onAction="#abrirProveedores" prefHeight="106.0" prefWidth="230.0" stylesheets="@../recursos/css/table.css" text="PROVEEDORES" />
+      <Label layoutX="375.0" layoutY="80.0" stylesheets="@../recursos/css/table.css" text="NOMBRE DE LA EMPRESA" />
+      <Button id="btn1" fx:id="btnVenta" layoutX="323.0" layoutY="205.0" mnemonicParsing="false" onAction="#abrirVenta" prefHeight="106.0" prefWidth="230.0" styleClass="btn1" stylesheets="@../recursos/css/table.css" text="VENTA" />
+      <Button id="btn2" fx:id="btnProductos" layoutX="324.0" layoutY="332.0" mnemonicParsing="false" onAction="#abrirProductos" prefHeight="106.0" prefWidth="230.0" stylesheets="@../recursos/css/table.css" text="PRODUCTOS" />
+      <Button id="btn3" fx:id="btnProveedores" layoutX="326.0" layoutY="458.0" mnemonicParsing="false" onAction="#abrirProveedores" prefHeight="106.0" prefWidth="230.0" stylesheets="@../recursos/css/table.css" text="PROVEEDORES" />
     </children>
 </AnchorPane>

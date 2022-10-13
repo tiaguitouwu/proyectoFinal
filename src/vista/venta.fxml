@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="819.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.VentaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="688.0" prefWidth="1062.0" style="-fx-border-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlador.VentaController">
    <children>
-      <TableView fx:id="tablaVenta" layoutX="642.0" layoutY="241.0" onMouseClicked="#mostrar" prefHeight="298.0" prefWidth="410.0">
+      <TableView fx:id="tablaVenta" layoutX="636.0" layoutY="194.0" onMouseClicked="#mostrar" prefHeight="262.0" prefWidth="410.0">
         <columns>
           <TableColumn fx:id="id" prefWidth="75.0" text="Id" />
           <TableColumn fx:id="nombre" prefWidth="75.0" text="Nombre" />
@@ -25,82 +25,84 @@
          <image>
             <Image url="@../recursos/icono-producto.jpg" />
          </image></ImageView>
-      <Label layoutX="61.0" layoutY="136.0" text="RUC-CI:">
+      <Label layoutX="33.0" layoutY="55.0" text="RUC-CI:">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="61.0" layoutY="186.0" text="TELEFÓNO">
+      <Label layoutX="33.0" layoutY="105.0" text="TELEFÓNO">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="61.0" layoutY="161.0" text="NOMBRE">
+      <Label layoutX="33.0" layoutY="80.0" text="NOMBRE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="rucCliente" layoutX="173.0" layoutY="136.0" prefHeight="25.0" prefWidth="215.0" text="0" />
-      <TextField fx:id="txtRazon" layoutX="173.0" layoutY="161.0" prefHeight="25.0" prefWidth="215.0" text="SIN NOMBRE" />
-      <TextField fx:id="txtTelefono" layoutX="173.0" layoutY="186.0" prefHeight="25.0" prefWidth="215.0" text="0" />
-      <Label layoutX="61.0" layoutY="320.0" text="CÓDIGO">
+      <TextField fx:id="rucCliente" disable="true" layoutX="145.0" layoutY="55.0" prefHeight="25.0" prefWidth="215.0" text="0" />
+      <TextField fx:id="txtRazon" disable="true" layoutX="145.0" layoutY="80.0" prefHeight="25.0" prefWidth="215.0" text="SIN NOMBRE" />
+      <TextField fx:id="txtTelefono" disable="true" layoutX="145.0" layoutY="105.0" prefHeight="25.0" prefWidth="215.0" text="0" />
+      <Label layoutX="33.0" layoutY="239.0" text="CÓDIGO">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="codVenta" disable="true" layoutX="173.0" layoutY="320.0" prefHeight="25.0" prefWidth="391.0" />
-      <Label layoutX="61.0" layoutY="345.0" text="NOMBRE">
+      <TextField fx:id="codVenta" disable="true" layoutX="145.0" layoutY="239.0" prefHeight="25.0" prefWidth="391.0" />
+      <Label layoutX="33.0" layoutY="264.0" text="NOMBRE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="nomVenta" disable="true" layoutX="173.0" layoutY="345.0" prefHeight="25.0" prefWidth="215.0" />
-      <Label layoutX="61.0" layoutY="370.0" text="CANTIDAD">
+      <TextField fx:id="nomVenta" disable="true" layoutX="145.0" layoutY="264.0" prefHeight="25.0" prefWidth="215.0" />
+      <Label layoutX="33.0" layoutY="289.0" text="CANTIDAD">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="canVenta" layoutX="173.0" layoutY="370.0" prefHeight="25.0" prefWidth="215.0" text="1" />
-      <Button fx:id="añadir" layoutX="337.0" layoutY="477.0" mnemonicParsing="false" onAction="#factura" text="AÑADIR" />
-      <Button fx:id="borrar" layoutX="142.0" layoutY="477.0" mnemonicParsing="false" onAction="#limpiarTexto" text="BORRAR" />
-      <TableView fx:id="tablaFactura" layoutX="61.0" layoutY="605.0" prefHeight="200.0" prefWidth="790.0" style="-fx-border-color: black;">
+      <TextField fx:id="canVenta" layoutX="145.0" layoutY="289.0" prefHeight="25.0" prefWidth="215.0" text="1" />
+      <Button fx:id="añadir" layoutX="312.0" layoutY="356.0" mnemonicParsing="false" onAction="#factura" text="AÑADIR" />
+      <Button fx:id="borrar" layoutX="117.0" layoutY="358.0" mnemonicParsing="false" onAction="#limpiarTexto" text="BORRAR" />
+      <TableView fx:id="tablaFactura" layoutX="23.0" layoutY="481.0" prefHeight="169.0" prefWidth="771.0" style="-fx-border-color: black;">
         <columns>
             <TableColumn fx:id="codFac" prefWidth="112.99996948242188" text="CODIGO" />
-          <TableColumn fx:id="productoFac" prefWidth="294.0" text="PRODUCTO" />
-            <TableColumn fx:id="cantidadFac" prefWidth="107.0" text="CANTIDAD" />
+          <TableColumn fx:id="productoFac" prefWidth="286.0" text="PRODUCTO" />
+            <TableColumn fx:id="cantidadFac" prefWidth="115.0" text="CANTIDAD" />
             <TableColumn fx:id="precioFac" prefWidth="116.0" text="PRECIO" />
             <TableColumn fx:id="totalFac" prefWidth="159.0" text="TOTAL" />
         </columns>
       </TableView>
-      <Label layoutX="857.0" layoutY="649.0" text="SUBTOTAL">
+      <Label layoutX="820.0" layoutY="548.0" text="SUBTOTAL">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label fx:id="total" layoutX="992.0" layoutY="649.0" text="0">
+      <Label fx:id="total" layoutX="964.0" layoutY="549.0" text="0">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="1052.0" layoutY="649.0" text="Gs.">
+      <Label layoutX="1030.0" layoutY="548.0" text="Gs.">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="precioVenta" disable="true" layoutX="388.0" layoutY="345.0" prefHeight="25.0" prefWidth="176.0" promptText="PRECIO" />
-      <Button fx:id="btnFactura" layoutX="446.0" layoutY="533.0" mnemonicParsing="false" onAction="#pagar" prefHeight="52.0" prefWidth="143.0" text="Pagar" />
-      <TextField fx:id="txtVenta" layoutX="173.0" layoutY="295.0" prefHeight="25.0" prefWidth="176.0" promptText="Venta N°" />
-      <Label layoutX="61.0" layoutY="295.0" text="VENTA N°">
+      <TextField fx:id="precioVenta" disable="true" layoutX="360.0" layoutY="264.0" prefHeight="25.0" prefWidth="176.0" promptText="PRECIO" />
+      <Button fx:id="btnFactura" layoutX="424.0" layoutY="397.0" mnemonicParsing="false" onAction="#pagar" prefHeight="52.0" prefWidth="143.0" text="Pagar" />
+      <TextField fx:id="txtVenta" layoutX="145.0" layoutY="214.0" prefHeight="25.0" prefWidth="176.0" promptText="Venta N°" />
+      <Label layoutX="33.0" layoutY="214.0" text="VENTA N°">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="59.0" layoutY="210.0" text="DIRECCIÓN">
+      <Label layoutX="31.0" layoutY="129.0" text="DIRECCIÓN">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="txtDireccion" layoutX="173.0" layoutY="210.0" prefHeight="25.0" prefWidth="215.0" />
-      <Button layoutX="388.0" layoutY="136.0" mnemonicParsing="false" onAction="#buscar" text="..." />
+      <TextField fx:id="txtDireccion" disable="true" layoutX="145.0" layoutY="129.0" prefHeight="25.0" prefWidth="215.0" text="XXX" />
+      <Button layoutX="360.0" layoutY="55.0" mnemonicParsing="false" onAction="#buscar" text="..." />
+      <Button fx:id="nuevoCliente" layoutX="397.0" layoutY="55.0" mnemonicParsing="false" onAction="#crearCliente" text="AÑADIR CLIENTE" />
+      <Button fx:id="btnNuevoCliente" disable="true" layoutX="146.0" layoutY="160.0" mnemonicParsing="false" onAction="#newCliente" text="ACEPTAR" />
    </children>
 </AnchorPane>
