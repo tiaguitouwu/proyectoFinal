@@ -101,5 +101,6 @@
          </font>
       </Label>
       <TextField fx:id="txtDireccion" layoutX="173.0" layoutY="210.0" prefHeight="25.0" prefWidth="215.0" />
+      <Button layoutX="388.0" layoutY="136.0" mnemonicParsing="false" onAction="#buscar" text="..." />
    </children>
 </AnchorPane>

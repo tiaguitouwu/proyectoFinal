@@ -214,8 +214,30 @@ public class VentaController implements Initializable {
         
         
         
+        }
     }
 
-    
+    @FXML
+    private void buscar(ActionEvent event) {
+        try {
+         FXMLLoader fxmlLoader = new FXMLLoader();
+         fxmlLoader.setLocation(getClass().getResource("/vista/clientes.fxml"));
+         Scene scene = new Scene(fxmlLoader.load());
+         Stage stage = new Stage();
+         stage.setScene(scene);
+         stage.setTitle("Cliente");
+         stage.initModality(Modality.APPLICATION_MODAL);
+         clientesController buscarControlador= fxmlLoader.getController();
+         buscarControlador.recibirDatos(this);
+         stage.show();
+        
+     } catch (IOException ex) {
+         Logger.getLogger(VentaController.class.getName()).log(Level.SEVERE, null, ex);
+     }
+
     }
- }
+    public void recibirCodigo(int id){
+       rucCliente.setText(String.valueOf(id));
+    }
+    
+}
