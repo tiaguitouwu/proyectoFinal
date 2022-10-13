@@ -27,7 +27,7 @@ public class conexion {
     public conexion(){
         this.base="mydb";
         this.user="root";
-        this.contra="";
+        this.contra="admin";
         this:host="localhost";
     }
 
