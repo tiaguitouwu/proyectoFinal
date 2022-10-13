@@ -67,6 +67,7 @@ public class ConfirmacionController extends inicioController implements Initiali
             stage.setTitle("MENU DE ");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
+            stage.setResizable(false);
             stage.show();
             } catch (IOException ex) {
             Logger.getLogger(inicioController.class.getName()).log(Level.SEVERE, null, ex);

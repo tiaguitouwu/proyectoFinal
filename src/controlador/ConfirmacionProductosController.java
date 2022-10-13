@@ -67,6 +67,7 @@ public class ConfirmacionProductosController implements Initializable {
             stage.setTitle("MENU DE PRODUCTOS");
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
+            stage.setResizable(false);
             stage.show();
             } catch (IOException ex) {
             Logger.getLogger(inicioController.class.getName()).log(Level.SEVERE, null, ex);
