@@ -3,9 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Usuario/Desktop/proyectoFinal/src/modelo/clientes.java</file>
+            <file>file:/C:/Users/Usuario/Desktop/proyectoFinal/src/controlador/ProductosController.java</file>
+            <file>file:/C:/Users/Usuario/Desktop/proyectoFinal/src/controlador/inicioController.java</file>
+            <file>file:/C:/Users/Usuario/Desktop/proyectoFinal/src/recursos/css/table.css</file>
+            <file>file:/C:/Users/Usuario/Desktop/proyectoFinal/src/vista/productos.fxml</file>
+            <file>file:/C:/Users/Usuario/Desktop/proyectoFinal/src/controlador/ConfirmacionProductosController.java</file>
             <file>file:/C:/Users/Usuario/Desktop/proyectoFinal/src/proyectofinal/ProyectoFinal.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/proyectoFinal/src/controlador/ProveedoresController.java</file>
             <file>file:/C:/Users/Usuario/Desktop/proyectoFinal/src/controlador/VentaController.java</file>
         </group>
     </open-files>
