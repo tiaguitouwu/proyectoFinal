@@ -6,6 +6,7 @@
 package controlador;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,23 +28,43 @@ public class InstruccionesController implements Initializable {
     private Button atras;
     @FXML
     private ImageView imagen;
-    private String home="";
+    int numerito=1;
     /**
      * Initializes the controller class.
      */
+      
     @Override
     public void initialize(URL url, ResourceBundle rb) { 
-        Image image=new Image("/recursos/manual1.jpg",978,639,false,false);
-        imagen.setImage(image);
+        mostrar();
     }    
-
     @FXML
     private void siguiente(ActionEvent event) {
+        if(numerito<5){
+             numerito=numerito+1;
+             atras.setDisable(false);
+             mostrar();
+        }else{
+            siguiente.setDisable(true);
         
+        }
+      
     }
 
     @FXML
     private void atras(ActionEvent event) {
+        if(numerito>1){
+            numerito=numerito-1;
+             atras.setDisable(false);
+             mostrar();
+             siguiente.setDisable(false);
+        }else{
+            atras.setDisable(true);
+            siguiente.setDisable(false);
+        }
+        
     }
-    
+    private void mostrar(){
+        Image image=new Image("/recursos/manual"+numerito+".png",978,639,false,false);
+        imagen.setImage(image);
+    }
 }

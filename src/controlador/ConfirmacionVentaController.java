@@ -18,10 +18,12 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import modelo.acceso;
+import sun.security.util.Password;
 
 /**
  * FXML Controller class
@@ -30,9 +32,10 @@ import modelo.acceso;
  */
 public class ConfirmacionVentaController implements Initializable {
 
-    @FXML
-    private TextField password;
+    
     acceso a=new acceso();
+    @FXML
+    private PasswordField contra;
 
     /**
      * Initializes the controller class.
@@ -44,7 +47,7 @@ public class ConfirmacionVentaController implements Initializable {
 
     @FXML
     private void ingresar(ActionEvent event){
-        String sql="select count(*) from acceso where departamento='venta' && password="+password.getText()+"";
+        String sql="select count(*) from acceso where departamento='venta' && password=md5("+contra.getText()+")";
         int can=a.consultarCantidad(sql);
         System.out.println(can);
         if(can==1){
